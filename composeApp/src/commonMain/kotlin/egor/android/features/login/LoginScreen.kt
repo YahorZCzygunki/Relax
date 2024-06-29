@@ -5,6 +5,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 import egor.android.features.login.models.LoginAction
+import egor.android.navigations.AppScreens
 import egor.android.navigations.LocalNavHost
 
 @Composable
@@ -21,6 +22,7 @@ fun LoginScreen(
 
     when (viewAction) {
         LoginAction.OpenMainScreen -> {
+            externalNavHost.navigate(AppScreens.Main.title)
             loginViewModel.clearAction()
         }
 

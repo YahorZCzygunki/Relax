@@ -55,6 +55,7 @@ internal fun LoginView(
                 fontSize = 18.sp
             )
         }
+
         Box(
             modifier = Modifier
                 .padding(top = 20.dp, bottom = 12.dp)
@@ -69,20 +70,21 @@ internal fun LoginView(
                 fontSize = 22.sp
             )
         }
+
         Box(
             modifier = Modifier
-                .padding(top = 20.dp, bottom = 12.dp, start = 16.dp, end = 16.dp)
+                .padding(top = 4.dp, bottom = 12.dp, start = 16.dp, end = 16.dp)
                 .fillMaxWidth()
         ) {
             Text(
                 modifier = Modifier.align(Alignment.Center),
                 text = stringResource(Res.string.login_intro),
                 color = RelaxTheme.colors.primaryText,
-                fontWeight = FontWeight.Normal,
                 textAlign = TextAlign.Center,
-                fontSize = 16.sp
+                fontWeight = FontWeight.Normal, fontSize = 16.sp
             )
         }
+
         RTextField(
             text = viewState.emailValue,
             hint = stringResource(Res.string.login_email),
@@ -98,20 +100,32 @@ internal fun LoginView(
         ) {
             eventHandler.invoke(LoginEvent.PasswordChanged(it))
         }
+
         Row(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Box(modifier = Modifier.size(width = 156.dp, height = 40.dp).clickable { }) {
+
+            Box(modifier = Modifier.size(width = 156.dp, height = 40.dp)
+                .clickable {
+
+                }
+            ) {
                 Text(
-                    modifier = Modifier
-                        .align(Alignment.Center),
+                    modifier = Modifier.align(Alignment.Center),
                     text = stringResource(Res.string.login_forgot),
                     color = RelaxTheme.colors.primaryText
                 )
             }
+
             Spacer(modifier = Modifier.weight(1f))
-            Box(modifier = Modifier.size(width = 84.dp, height = 40.dp).clickable { }) {
+
+            Box(
+                modifier = Modifier.size(width = 84.dp, height = 40.dp)
+                    .clickable {
+                        eventHandler.invoke(LoginEvent.LoginClicked)
+                    }
+            ) {
                 Text(
                     modifier = Modifier.align(Alignment.Center),
                     text = stringResource(Res.string.login_login),
@@ -119,20 +133,23 @@ internal fun LoginView(
                 )
             }
         }
+
         Row {
             Text(
                 modifier = Modifier.padding(top = 4.dp, bottom = 12.dp, start = 16.dp),
                 text = stringResource(Res.string.login_register),
-                color = RelaxTheme.colors.tintColor
+                color = RelaxTheme.colors.tintColor,
+                fontWeight = FontWeight.Light
             )
-            Text(
-                modifier = Modifier
-                    .padding(top = 4.dp, bottom = 12.dp, end = 16.dp)
-                    .clickable {
 
+            Text(
+                modifier = Modifier.padding(top = 4.dp, bottom = 12.dp, end = 16.dp)
+                    .clickable {
+                        eventHandler.invoke(LoginEvent.SignUpClicked)
                     },
                 text = stringResource(Res.string.login_signup),
-                color = RelaxTheme.colors.tintColor
+                color = RelaxTheme.colors.tintColor,
+                fontWeight = FontWeight.Light
             )
         }
     }
@@ -140,14 +157,14 @@ internal fun LoginView(
 
 @Composable
 @Preview
-fun LoginView_Preview() {
+internal fun LoginView_Preview() {
     AppTheme {
         LoginView(
             viewState = LoginViewState(
-                emailValue = "111@ffs.vv",
-                passwordValue = "q22222"
+                emailValue = "bob298@yandex.ru",
+                passwordValue = "12345"
             ),
-            eventHandler = {}
+            eventHandler = { }
         )
     }
 }
