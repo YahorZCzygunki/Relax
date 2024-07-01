@@ -11,6 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import egor.android.features.create.CreatePostScreen
 import egor.android.features.login.LoginScreen
 import egor.android.features.paywall.PaywallScreen
+import egor.android.features.splash.SplashScreen
 import egor.android.navigations.AppScreens
 import egor.android.navigations.LocalNavHost
 import egor.android.navigations.main.MainScreen
@@ -33,8 +34,11 @@ internal fun RelaxApp(
     ) {
         NavHost(
             navController = navController,
-            startDestination = AppScreens.Login.title
+            startDestination = AppScreens.Splash.title
         ) {
+            composable(route = AppScreens.Splash.title) {
+                SplashScreen(navController = navController)
+            }
             composable(route = AppScreens.Login.title) {
                 LoginScreen()
             }
