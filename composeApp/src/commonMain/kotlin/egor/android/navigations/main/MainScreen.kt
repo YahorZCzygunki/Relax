@@ -27,7 +27,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import egor.android.features.feed.FeedScreen
+import egor.android.features.feed.ui.FeedScreen
 import egor.android.features.profile.ui.ProfileScreen
 import egor.android.navigations.AppScreens
 import egor.android.navigations.LocalNavHost
