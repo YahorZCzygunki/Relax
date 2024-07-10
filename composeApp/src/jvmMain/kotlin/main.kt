@@ -4,6 +4,9 @@ import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import java.awt.Dimension
 import egor.android.App
+import egor.android.core.database.getDatabaseBuilder
+import egor.android.core.database.getRoomDatabase
+import egor.android.core.di.InjectProvider
 
 fun main() = application {
     Window(
@@ -12,6 +15,11 @@ fun main() = application {
         onCloseRequest = ::exitApplication,
     ) {
         window.minimumSize = Dimension(350, 600)
+
+        val appDatabase = getRoomDatabase(getDatabaseBuilder())
+
+        InjectProvider.addDependency("database", appDatabase)
+
         App()
     }
 }
