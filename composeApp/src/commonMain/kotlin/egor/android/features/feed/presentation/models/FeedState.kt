@@ -8,9 +8,14 @@ data class FeedState(
     val title: String = "",
     val filters: List<ItemFilterModel> = emptyList(),
     val itemFeedModels: List<ItemFeedModel> = listOf(
-        ItemFeedModel(title = "1", subtitle = "11", count = "111"),
-        ItemFeedModel(title = "2", subtitle = "22", count = "222"),
-        ItemFeedModel(title = "3", subtitle = "33", count = "333")
+        ItemFeedModel(title = "1", category = "11", socialInfo = "111"),
+        ItemFeedModel(title = "2", category = "22", socialInfo = "222"),
+        ItemFeedModel(title = "3", category = "33", socialInfo = "333")
+    ),
+    val filteredFeedModels: List<ItemFeedModel> = listOf(
+        ItemFeedModel(title = "1", category = "11", socialInfo = "111"),
+        ItemFeedModel(title = "2", category = "22", socialInfo = "222"),
+        ItemFeedModel(title = "3", category = "33", socialInfo = "333")
     ),
     val currentChipSelected: String? = null
 )

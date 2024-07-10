@@ -46,14 +46,14 @@ fun ItemFeedCell(feedModel: ItemFeedModel) {
         Spacer(modifier = Modifier.size(8.dp))
 
         Text(
-            text = feedModel.subtitle,
+            text = feedModel.category,
             fontSize = 18.sp,
             fontWeight = FontWeight.Normal,
             color = RelaxTheme.colors.tintColor
         )
 
         Text(
-            text = feedModel.count,
+            text = feedModel.socialInfo,
             fontSize = 18.sp,
             fontWeight = FontWeight.Normal,
             color = RelaxTheme.colors.tintColor

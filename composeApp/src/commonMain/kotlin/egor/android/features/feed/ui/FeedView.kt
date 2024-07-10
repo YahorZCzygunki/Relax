@@ -49,7 +49,7 @@ fun FeedView(viewState: FeedState, onEvent: (FeedEvent) -> Unit) {
             items(viewState.filters) {
 
                 ItemFilterCell(it) {
-                    onEvent(FeedEvent.CLickItemFilter(it.text))
+                    onEvent(FeedEvent.ClickItemFilter(it.text))
                 }
             }
         }
